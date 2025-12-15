@@ -38,14 +38,14 @@ export function FabricCalculator() {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="bg-gradient-to-b from-gray-900 to-black border border-gray-800 p-8 md:p-12">
+      <div className="bg-white border-2 border-[#E8DCC4] p-8 md:p-12 shadow-md">
         <div className="flex items-center gap-4 mb-8">
-          <div className="w-12 h-12 rounded-full bg-amber-900/30 border border-amber-800/50 flex items-center justify-center">
-            <Calculator className="h-6 w-6 text-amber-400" />
+          <div className="w-12 h-12 rounded-full bg-[#E8DCC4] border border-[#D4C4A8] flex items-center justify-center">
+            <Calculator className="h-6 w-6 text-[#8B4513]" />
           </div>
           <div>
-            <h2 className="text-3xl font-serif font-light text-white">Calcular Costo de Producción</h2>
-            <p className="text-gray-400 font-light text-sm mt-1">
+            <h2 className="text-3xl font-serif font-normal text-[#2C2416]">Calcular Costo de Producción</h2>
+            <p className="text-[#6B5B47] font-light text-sm mt-1">
               Cada short requiere aproximadamente {metersPerShort} metros de tela
             </p>
           </div>
@@ -53,22 +53,22 @@ export function FabricCalculator() {
 
         <div className="space-y-8">
           <div className="space-y-3">
-            <Label htmlFor="fabric" className="text-gray-300 font-light text-sm uppercase tracking-wider">
+            <Label htmlFor="fabric" className="text-[#6B5B47] font-light text-sm uppercase tracking-wider">
               Seleccionar Tela
             </Label>
             <Select value={selectedFabricId} onValueChange={setSelectedFabricId}>
               <SelectTrigger 
                 id="fabric" 
-                className="bg-black border-gray-800 text-white h-12 hover:border-amber-600/50 focus:border-amber-600"
+                className="bg-white border-[#D4C4A8] text-[#2C2416] h-12 hover:border-[#8B4513] focus:border-[#8B4513]"
               >
                 <SelectValue placeholder="Elige una tela" />
               </SelectTrigger>
-              <SelectContent className="bg-black border-gray-800">
+              <SelectContent className="bg-white border-[#E8DCC4]">
                 {fabrics.map((fabric) => (
                   <SelectItem 
                     key={fabric.id} 
                     value={fabric.id}
-                    className="text-white hover:bg-gray-900 focus:bg-gray-900"
+                    className="text-[#2C2416] hover:bg-[#F5F1E8] focus:bg-[#F5F1E8]"
                   >
                     {fabric.name} - ${fabric.pricePerMeter}/m
                   </SelectItem>
@@ -78,7 +78,7 @@ export function FabricCalculator() {
           </div>
 
           <div className="space-y-3">
-            <Label htmlFor="quantity" className="text-gray-300 font-light text-sm uppercase tracking-wider">
+            <Label htmlFor="quantity" className="text-[#6B5B47] font-light text-sm uppercase tracking-wider">
               Cantidad de Shorts
             </Label>
             <Input
@@ -88,59 +88,59 @@ export function FabricCalculator() {
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
               placeholder="Ej: 100"
-              className="bg-black border-gray-800 text-white h-12 hover:border-amber-600/50 focus:border-amber-600"
+              className="bg-white border-[#D4C4A8] text-[#2C2416] h-12 hover:border-[#8B4513] focus:border-[#8B4513]"
             />
           </div>
 
           {selectedFabric && (
-            <div className="border-t border-gray-800 pt-8 space-y-8">
+            <div className="border-t border-[#E8DCC4] pt-8 space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-black border border-gray-800 p-6">
+                <div className="bg-[#FAF8F3] border border-[#E8DCC4] p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <Package className="h-5 w-5 text-amber-400" />
-                    <p className="text-xs font-light tracking-wider uppercase text-gray-400">Metros necesarios</p>
+                    <Package className="h-5 w-5 text-[#8B4513]" />
+                    <p className="text-xs font-light tracking-wider uppercase text-[#6B5B47]">Metros necesarios</p>
                   </div>
-                  <p className="text-4xl font-serif font-light text-white">{metersNeeded.toFixed(2)}m</p>
+                  <p className="text-4xl font-serif font-normal text-[#2C2416]">{metersNeeded.toFixed(2)}m</p>
                 </div>
                 
-                <div className="bg-black border border-gray-800 p-6">
+                <div className="bg-[#FAF8F3] border border-[#E8DCC4] p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <DollarSign className="h-5 w-5 text-amber-400" />
-                    <p className="text-xs font-light tracking-wider uppercase text-gray-400">Costo total</p>
+                    <DollarSign className="h-5 w-5 text-[#8B4513]" />
+                    <p className="text-xs font-light tracking-wider uppercase text-[#6B5B47]">Costo total</p>
                   </div>
-                  <p className="text-4xl font-serif font-light text-amber-400">${totalCost.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                  <p className="text-4xl font-serif font-normal text-[#8B4513]">${totalCost.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                 </div>
               </div>
 
-              <div className="bg-black border border-gray-800 p-6">
-                <p className="text-sm font-light tracking-wider uppercase text-gray-400 mb-4">Desglose</p>
+              <div className="bg-[#FAF8F3] border border-[#E8DCC4] p-6">
+                <p className="text-sm font-light tracking-wider uppercase text-[#6B5B47] mb-4">Desglose</p>
                 <ul className="space-y-3">
                   <li className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400 font-light">Tela</span>
-                    <span className="text-white font-light">{selectedFabric.name}</span>
+                    <span className="text-[#6B5B47] font-light">Tela</span>
+                    <span className="text-[#2C2416] font-light">{selectedFabric.name}</span>
                   </li>
                   <li className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400 font-light">Precio por metro</span>
-                    <span className="text-white font-light">${selectedFabric.pricePerMeter}</span>
+                    <span className="text-[#6B5B47] font-light">Precio por metro</span>
+                    <span className="text-[#2C2416] font-light">${selectedFabric.pricePerMeter}</span>
                   </li>
                   <li className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400 font-light">Cantidad de shorts</span>
-                    <span className="text-white font-light">{quantityNum}</span>
+                    <span className="text-[#6B5B47] font-light">Cantidad de shorts</span>
+                    <span className="text-[#2C2416] font-light">{quantityNum}</span>
                   </li>
                   <li className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400 font-light">Consumo total</span>
-                    <span className="text-white font-light">{metersNeeded.toFixed(2)} metros</span>
+                    <span className="text-[#6B5B47] font-light">Consumo total</span>
+                    <span className="text-[#2C2416] font-light">{metersNeeded.toFixed(2)} metros</span>
                   </li>
-                  <li className="flex items-center justify-between text-sm pt-3 border-t border-gray-800">
-                    <span className="text-gray-400 font-light flex items-center gap-2">
+                  <li className="flex items-center justify-between text-sm pt-3 border-t border-[#E8DCC4]">
+                    <span className="text-[#6B5B47] font-light flex items-center gap-2">
                       Stock disponible
                       {hasEnoughStock ? (
-                        <CheckCircle className="h-4 w-4 text-green-400" />
+                        <CheckCircle className="h-4 w-4 text-green-700" />
                       ) : (
-                        <XCircle className="h-4 w-4 text-red-400" />
+                        <XCircle className="h-4 w-4 text-red-700" />
                       )}
                     </span>
-                    <span className={hasEnoughStock ? "text-green-400 font-light" : "text-red-400 font-light"}>
+                    <span className={hasEnoughStock ? "text-green-700 font-light" : "text-red-700 font-light"}>
                       {selectedFabric.stock.toLocaleString()}m {hasEnoughStock ? "(Suficiente)" : "(Insuficiente)"}
                     </span>
                   </li>

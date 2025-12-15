@@ -22,16 +22,16 @@ export function Navigation() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-900">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E8DCC4] shadow-sm">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="text-2xl font-serif font-light text-white group-hover:text-amber-400 transition-colors">
+            <div className="text-2xl font-serif font-normal text-[#2C2416] group-hover:text-[#8B4513] transition-colors">
               TextilPro
             </div>
-            <div className="h-6 w-px bg-gray-800" />
-            <div className="text-xs font-light tracking-wider text-gray-500 uppercase">
+            <div className="h-6 w-px bg-[#D4C4A8]" />
+            <div className="text-xs font-light tracking-wider text-[#6B5B47] uppercase">
               Mayorista
             </div>
           </Link>
@@ -49,12 +49,12 @@ export function Navigation() {
                   className={cn(
                     "flex items-center gap-2 px-6 py-3 text-sm font-light tracking-wide transition-all duration-300 relative",
                     isActive
-                      ? "text-amber-400"
-                      : "text-gray-400 hover:text-white"
+                      ? "text-[#8B4513]"
+                      : "text-[#6B5B47] hover:text-[#2C2416]"
                   )}
                 >
                   {isActive && (
-                    <div className="absolute bottom-0 left-0 right-0 h-px bg-amber-400" />
+                    <div className="absolute bottom-0 left-0 right-0 h-px bg-[#8B4513]" />
                   )}
                   <Icon className="h-4 w-4" />
                   <span>{item.name}</span>
@@ -66,7 +66,7 @@ export function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-gray-400 hover:text-white transition-colors"
+            className="md:hidden text-[#6B5B47] hover:text-[#2C2416] transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -79,7 +79,7 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-6 border-t border-gray-900">
+          <div className="md:hidden pb-6 border-t border-[#E8DCC4]">
             <div className="flex flex-col gap-1 mt-4">
               {navigation.map((item) => {
                 const Icon = item.icon
@@ -93,8 +93,8 @@ export function Navigation() {
                     className={cn(
                       "flex items-center gap-3 px-4 py-3 text-sm font-light transition-colors",
                       isActive
-                        ? "text-amber-400 bg-amber-900/10 border-l-2 border-amber-400"
-                        : "text-gray-400 hover:text-white hover:bg-gray-900/50"
+                        ? "text-[#8B4513] bg-[#E8DCC4]/50 border-l-2 border-[#8B4513]"
+                        : "text-[#6B5B47] hover:text-[#2C2416] hover:bg-[#F5F1E8]"
                     )}
                   >
                     <Icon className="h-5 w-5" />
