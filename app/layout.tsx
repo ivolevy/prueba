@@ -1,17 +1,24 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Playfair_Display, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { Sidebar } from "@/components/sidebar"
+import { Navigation } from "@/components/navigation"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const playfair = Playfair_Display({ 
+  subsets: ["latin"],
+  variable: "--font-serif",
+  weight: ["300", "400", "500", "600", "700"]
+})
+
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-sans"
+})
 
 export const metadata: Metadata = {
   title: "TextilPro - Mayorista de Telas",
   description: "Telas deportivas y soft de alta calidad para producción de indumentaria",
-  generator: "v0.app",
   icons: {
     icon: [
       {
@@ -37,12 +44,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
-      <body className={`font-sans antialiased`}>
-        <div className="flex min-h-screen bg-background">
-          <Sidebar />
-          <main className="flex-1 ml-64">{children}</main>
-        </div>
+    <html lang="es" className="dark">
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+        <Navigation />
+        <main>{children}</main>
         <Analytics />
       </body>
     </html>
