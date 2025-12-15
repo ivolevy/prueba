@@ -121,7 +121,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-[#FAF8F3] text-[#2C2416];
+    @apply bg-white text-slate-900;
     font-family: var(--font-sans);
   }
   .font-serif {

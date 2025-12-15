@@ -1,131 +1,149 @@
 import { FabricCatalog } from "@/components/fabric-catalog"
 import Link from "next/link"
-import { ArrowRight, Sparkles, Award, Shield } from "lucide-react"
+import { ArrowRight, Award, Shield, TrendingUp } from "lucide-react"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#FAF8F3] text-[#2C2416]">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 bg-gradient-to-b from-[#FAF8F3] via-[#F5F1E8] to-[#FAF8F3]">
-        {/* Subtle pattern overlay */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-gradient-to-b from-slate-50 to-white">
+        {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(rgba(139,69,19,0.1) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(139,69,19,0.1) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(circle at 2px 2px, #1e293b 1px, transparent 0)`,
             backgroundSize: '40px 40px'
           }} />
         </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8DCC4] border border-[#D4C4A8]">
-            <Sparkles className="h-4 w-4 text-[#8B4513]" />
-            <span className="text-sm font-light tracking-wider text-[#6B4423] uppercase">Calidad Excepcional</span>
-          </div>
-          
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-serif font-normal tracking-tight mb-6 leading-[1.1]">
-            <span className="block text-[#2C2416]">TextilPro</span>
-            <span className="block text-[#8B4513] font-normal mt-2">Mayorista de Telas</span>
-          </h1>
-          
-          <p className="text-xl sm:text-2xl text-[#5C4A37] font-light max-w-3xl mx-auto mb-12 leading-relaxed">
-            Telas deportivas y soft de la más alta calidad. 
-            <span className="block mt-2 text-[#6B5B47]">Craftsmanship que define la excelencia.</span>
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link 
-              href="#catalogo"
-              className="group px-8 py-4 bg-[#8B4513] hover:bg-[#7A3D12] text-white font-medium tracking-wide transition-all duration-300 flex items-center gap-2 uppercase text-sm shadow-md"
-            >
-              Explorar Colección
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link 
-              href="/calculadora"
-              className="px-8 py-4 border-2 border-[#8B4513] hover:bg-[#8B4513]/10 text-[#8B4513] font-medium tracking-wide transition-all duration-300 uppercase text-sm"
-            >
-              Calculadora
-            </Link>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-[#8B4513]/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-[#8B4513] rounded-full mt-2" />
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-24 border-y border-[#E8DCC4] bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#E8DCC4] border border-[#D4C4A8] mb-6">
-                <Award className="h-8 w-8 text-[#8B4513]" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Content */}
+            <div className="space-y-10">
+              <div>
+                <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold leading-tight mb-6">
+                  <span className="block text-slate-900">TextilPro</span>
+                  <span className="block text-slate-600 mt-2 text-5xl sm:text-6xl lg:text-7xl font-normal">
+                    Mayorista de Telas
+                  </span>
+                </h1>
+                
+                <p className="text-xl text-slate-600 leading-relaxed max-w-xl">
+                  Telas deportivas y soft de la más alta calidad para producción de indumentaria.
+                </p>
               </div>
-              <h3 className="text-xl font-serif font-normal mb-3 text-[#8B4513]">Calidad Premium</h3>
-              <p className="text-[#6B5B47] font-light leading-relaxed">
-                Selección exclusiva de telas de la más alta calidad para producción de indumentaria.
-              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link 
+                  href="#catalogo"
+                  className="group px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2"
+                >
+                  Explorar Colección
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link 
+                  href="/calculadora"
+                  className="px-8 py-4 bg-white border-2 border-slate-300 hover:border-slate-400 text-slate-700 font-semibold text-base rounded-lg shadow-sm hover:shadow-md transition-all duration-200"
+                >
+                  Estimar Costos
+                </Link>
+              </div>
+
+              {/* Stats Row */}
+              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-200">
+                <div>
+                  <div className="text-4xl font-bold text-slate-900">500+</div>
+                  <div className="text-sm text-slate-500 font-medium mt-1">Productos</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-slate-900">24/7</div>
+                  <div className="text-sm text-slate-500 font-medium mt-1">Disponible</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold text-slate-900">100%</div>
+                  <div className="text-sm text-slate-500 font-medium mt-1">Calidad</div>
+                </div>
+              </div>
             </div>
-            
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#E8DCC4] border border-[#D4C4A8] mb-6">
-                <Shield className="h-8 w-8 text-[#8B4513]" />
+
+            {/* Right Column - Features Cards */}
+            <div className="space-y-5">
+              <div className="bg-white border-2 border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 hover:border-slate-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Award className="h-6 w-6 text-slate-700" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2 text-slate-900">Calidad Premium</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      Selección exclusiva de telas de la más alta calidad para producción profesional.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-serif font-normal mb-3 text-[#8B4513]">Stock Garantizado</h3>
-              <p className="text-[#6B5B47] font-light leading-relaxed">
-                Disponibilidad inmediata con stock actualizado en tiempo real.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#E8DCC4] border border-[#D4C4A8] mb-6">
-                <Sparkles className="h-8 w-8 text-[#8B4513]" />
+              
+              <div className="bg-white border-2 border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 hover:border-slate-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Shield className="h-6 w-6 text-slate-700" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2 text-slate-900">Stock Garantizado</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      Disponibilidad inmediata con stock actualizado en tiempo real.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-serif font-normal mb-3 text-[#8B4513]">Variedad Excepcional</h3>
-              <p className="text-[#6B5B47] font-light leading-relaxed">
-                Amplia gama de colores y texturas para cada necesidad de diseño.
-              </p>
+              
+              <div className="bg-white border-2 border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200 hover:border-slate-300">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <TrendingUp className="h-6 w-6 text-slate-700" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2 text-slate-900">Variedad Excepcional</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">
+                      Amplia gama de colores y texturas para cada necesidad de diseño.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Catalog Section */}
-      <section id="catalogo" className="py-24 bg-[#FAF8F3]">
+      <section id="catalogo" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl sm:text-6xl font-serif font-normal mb-4 text-[#2C2416]">
-              Nuestra <span className="text-[#8B4513]">Colección</span>
+          <div className="mb-16 text-center">
+            <h2 className="text-5xl sm:text-6xl font-bold mb-4 text-slate-900">
+              Nuestra Colección
             </h2>
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#8B4513] to-transparent mx-auto mb-6" />
-            <p className="text-[#6B5B47] font-light text-lg max-w-2xl mx-auto">
-              Descubre nuestra selección exclusiva de telas deportivas y soft, 
-              cuidadosamente seleccionadas para la producción de indumentaria de alta calidad.
-          </p>
+            <div className="w-24 h-1 bg-slate-900 mx-auto mb-6" />
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Descubre nuestra selección exclusiva de telas deportivas y soft para producción de indumentaria de alta calidad.
+            </p>
+          </div>
+          <FabricCatalog />
         </div>
-        <FabricCatalog />
-      </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 border-t border-[#E8DCC4] bg-white">
+      <section className="py-24 bg-slate-900">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <h2 className="text-4xl sm:text-5xl font-serif font-normal mb-6 text-[#2C2416]">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-white">
             ¿Listo para comenzar?
           </h2>
-          <p className="text-xl text-[#6B5B47] font-light mb-10">
+          <p className="text-xl text-slate-300 mb-10">
             Contacta con nuestro equipo para consultas personalizadas y cotizaciones.
           </p>
           <Link 
             href="/contacto"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-[#8B4513] hover:bg-[#7A3D12] text-white font-medium tracking-wide transition-all duration-300 uppercase text-sm shadow-md"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-white hover:bg-slate-50 text-slate-900 font-semibold text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
           >
-            Contactar
-            <ArrowRight className="h-4 w-4" />
+            Contactar Ahora
+            <ArrowRight className="h-5 w-5" />
           </Link>
         </div>
       </section>

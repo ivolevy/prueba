@@ -12,7 +12,7 @@ export function Navigation() {
 
   const navigation = [
     { name: "Catálogo", href: "/", icon: Home },
-    { name: "Calculadora", href: "/calculadora", icon: Calculator },
+    { name: "Estimar Costos", href: "/calculadora", icon: Calculator },
     { name: "Contacto", href: "/contacto", icon: MessageCircle },
   ]
 
@@ -22,16 +22,16 @@ export function Navigation() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E8DCC4] shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="text-2xl font-serif font-normal text-[#2C2416] group-hover:text-[#8B4513] transition-colors">
+            <div className="text-2xl font-bold text-slate-900 group-hover:text-slate-700 transition-colors tracking-tight">
               TextilPro
             </div>
-            <div className="h-6 w-px bg-[#D4C4A8]" />
-            <div className="text-xs font-light tracking-wider text-[#6B5B47] uppercase">
+            <div className="h-6 w-px bg-slate-300" />
+            <div className="text-xs font-semibold tracking-wider text-slate-500 uppercase">
               Mayorista
             </div>
           </Link>
@@ -47,15 +47,12 @@ export function Navigation() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "flex items-center gap-2 px-6 py-3 text-sm font-light tracking-wide transition-all duration-300 relative",
+                    "flex items-center gap-2 px-5 py-3 text-sm font-semibold tracking-wide transition-all duration-200 relative rounded-lg",
                     isActive
-                      ? "text-[#8B4513]"
-                      : "text-[#6B5B47] hover:text-[#2C2416]"
+                      ? "bg-slate-900 text-white"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                   )}
                 >
-                  {isActive && (
-                    <div className="absolute bottom-0 left-0 right-0 h-px bg-[#8B4513]" />
-                  )}
                   <Icon className="h-4 w-4" />
                   <span>{item.name}</span>
                 </Link>
@@ -66,7 +63,7 @@ export function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-[#6B5B47] hover:text-[#2C2416] transition-colors"
+            className="md:hidden text-slate-600 hover:text-slate-900 transition-colors p-2 rounded-lg hover:bg-slate-100"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -79,8 +76,8 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-6 border-t border-[#E8DCC4]">
-            <div className="flex flex-col gap-1 mt-4">
+          <div className="md:hidden pb-5 border-t border-slate-200">
+            <div className="flex flex-col gap-1 mt-3">
               {navigation.map((item) => {
                 const Icon = item.icon
                 const isActive = pathname === item.href
@@ -91,10 +88,10 @@ export function Navigation() {
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "flex items-center gap-3 px-4 py-3 text-sm font-light transition-colors",
+                      "flex items-center gap-3 px-4 py-3 text-sm font-semibold transition-colors rounded-lg",
                       isActive
-                        ? "text-[#8B4513] bg-[#E8DCC4]/50 border-l-2 border-[#8B4513]"
-                        : "text-[#6B5B47] hover:text-[#2C2416] hover:bg-[#F5F1E8]"
+                        ? "bg-slate-900 text-white"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                     )}
                   >
                     <Icon className="h-5 w-5" />
